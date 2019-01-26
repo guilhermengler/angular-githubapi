@@ -4,13 +4,20 @@
         <img [src]="user[0].owner.avatar_url" [alt]="user.name" />
     </div>
     <h2 class="user-name">{{user[0].owner.login}}</h2>
+
+    <textarea name="" id="" cols="30" rows="10" #titleInput [value]="getLocalStorage(user[0].owner.login)"></textarea>
+
+    <button type="button" (click)="setLocalStorage(user[0].owner.login, titleInput.value)">
+        Salvar
+    </button>
   </div>
   <div class="main">
     <h3>Repositórios</h3>
     <ul class="list-repos">
       <li *ngFor="let item of user">
         <a [href]="item.html_url">
-            {{item.name}}</a>
+            {{item.name}}
+          </a>
       </li>
     </ul>
   </div>
