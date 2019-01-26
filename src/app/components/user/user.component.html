@@ -1,27 +1,17 @@
-<div class="github-card user-card">
-    <div class="header User"></div>
-    <a class="avatar"
-      [href]="'https://github.com/'+user.login">
-        <img [src]="user.avatar_url+'&amp;s=80'" [alt]="user.name" />
-      </a>
-    <div class="content">
-      <h1>{{user.name}}</h1>
-      <ul class="status">
-        <li>
-          <a [href]="'https://github.com/'+user.login+'?tab=repositories'">
-              <strong>{{user.public_repos}}</strong>Repos
-            </a>
-        </li>
-        <li>
-          <a [href]="'https://gist.github.com/'+user.login">
-              <strong>{{user.public_gists}}</strong>Gists
-            </a>
-        </li>
-        <li>
-          <a [href]="'https://github.com/'+user.login+'/followers'">
-              <strong>{{user.followers}}</strong>Followers
-            </a>
-        </li>
-      </ul>
+<div class="container-username" *ngIf="!!user">
+  <div class="sidebar">
+    <div class="picture">
+        <img [src]="user[0].owner.avatar_url" [alt]="user.name" />
     </div>
+    <h2 class="user-name">{{user[0].owner.login}}</h2>
   </div>
+  <div class="main">
+    <h3>Repositórios</h3>
+    <ul class="list-repos">
+      <li *ngFor="let item of user">
+        <a [href]="item.html_url">
+            {{item.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

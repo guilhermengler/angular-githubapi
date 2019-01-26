@@ -1,5 +1,7 @@
 <div class="container" [class.ready]="!!user">
-  <input [formControl]="formUser" placeholder="GitHub username" />
+  <div class="container-search-field">
+    <input [formControl]="formUser" class="search-field" placeholder="Username do GitHub" />
+  </div>
 
   <app-user *ngIf="user" [user]="user"></app-user>
 

@@ -12,7 +12,7 @@ import { EMPTY } from 'rxjs';
 })
 
 export class AppComponent implements OnInit {
-  formUser = new FormControl('a');
+  formUser = new FormControl();
   error: boolean = false;
   user: User = null;
 
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.formUser.valueChanges.pipe(
       filter(value => value.length > 2),
-      //debounceTime(500),
+      debounceTime(500),
       switchMap(value => 
         this.githubService.getGitHubUser(value).pipe(
           catchError(error => {
@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
       )
     )
     .subscribe(user => {
+      console.log(user);
       this.user = user;
       this.error = false;
     })

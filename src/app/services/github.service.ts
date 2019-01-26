@@ -11,8 +11,7 @@ export class GithubService {
   constructor(private http:HttpClient) { }
 
   getGitHubUser(name: string): Observable <User> {
-    const urlGet = 'https://api.github.com/users/'+name;
+    const urlGet = 'https://api.github.com/users/'+name+'/repos';
     return this.http.get <User> (urlGet);
   }
-
 }

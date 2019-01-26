@@ -1,0 +1,20 @@
+.container-search-field {
+    padding: 10px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.search-field {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 300px;
+    display: inline-block;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .20);
+    }
+}

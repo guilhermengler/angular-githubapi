@@ -1,0 +1,76 @@
+
+.container-username {
+    display: flex;
+    flex-direction: column;
+    max-width: 650px;
+    margin: 10px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #363636;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+// Sidebar
+
+.sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @media (min-width: 768px) {
+        width: 33%;
+    }
+}
+
+// Main
+.main {
+    width: 100%;
+
+    @media (min-width: 768px) {
+        width: 77%;
+        padding-left: 20px;
+    }
+}
+
+// Picture
+
+.picture {
+    margin-bottom: 15px;
+
+    img {
+        max-width: 50%;
+        display: inline-block;
+    }
+
+    @media (min-width: 768px) {
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+// List repos
+
+.list-repos {
+    margin-top: 15px;
+
+    li {
+        list-style: none;
+
+        &:last-child {
+            a {
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    }
+
+    a {
+        border: 1px solid #ddd;
+        border-bottom: 0;
+        padding: 5px;
+        font-size: 14px;
+        display: block;
+    }
+}
