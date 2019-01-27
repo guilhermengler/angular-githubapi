@@ -1,24 +1,41 @@
-<div class="container-username" *ngIf="!!user">
+<div class="container-username" *ngIf="!!user && user[0].owner">
   <div class="sidebar">
     <div class="picture">
         <img [src]="user[0].owner.avatar_url" [alt]="user.name" />
     </div>
     <h2 class="user-name">{{user[0].owner.login}}</h2>
 
-    <textarea name="" id="" cols="30" rows="10" #titleInput [value]="getLocalStorage(user[0].owner.login)"></textarea>
-
-    <button type="button" (click)="setLocalStorage(user[0].owner.login, titleInput.value)">
+    <div class="observacoes">
+      <label for="">Observações:</label>
+      <textarea name="" class="form-control" id="" cols="30" rows="10" #titleInput [value]="getLocalStorage(user[0].owner.login)"></textarea>
+      <button type="button" class="btn" (click)="setLocalStorage(user[0].owner.login, titleInput.value)">
         Salvar
     </button>
+    </div>
   </div>
   <div class="main">
     <h3>Repositórios</h3>
-    <ul class="list-repos">
-      <li *ngFor="let item of user">
-        <a [href]="item.html_url">
-            {{item.name}}
-          </a>
-      </li>
-    </ul>
+    <div class="list-repos">
+      <table id="tabela" class="row-border hover">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Default Branch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of user">
+            <td>
+              <a [href]="item.html_url">
+                {{item.name}}
+              </a>
+            </td>
+            <td>
+              <small>{{item.default_branch}}</small>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

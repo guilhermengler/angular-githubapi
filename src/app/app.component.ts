@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
       )
     )
     .subscribe(user => {
-      console.log(user);
       this.user = user;
       this.error = false;
     })

@@ -1,8 +1,6 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges, AfterViewInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { GithubService } from 'src/app/services/github.service';
-import { AppComponent } from 'src/app/app.component';
-import { stringify } from '@angular/core/src/render3/util';
 
 @Component({
   selector: 'app-user',
@@ -10,15 +8,37 @@ import { stringify } from '@angular/core/src/render3/util';
   styleUrls: ['./user.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnChanges, AfterViewInit {
   @Input()
   user: User;
   localStorage: boolean = false;
   fieldObservations: string = '';
+  tableInicitalize: boolean = false;
+  optionsTable = {
+    "pageLength": 50
+  }
   
   constructor(private githubService: GithubService) { }
 
   ngOnInit() {
+    console.log(this.user)
+  }
+
+  ngOnChanges() {
+    if(this.tableInicitalize) {
+      console.log('aqui');
+      $('#tabela').DataTable().destroy();
+      this.tableInicitalize = true;
+
+      setTimeout(function() {
+        $('#tabela').DataTable();
+      }, 10)
+    }   
+  }
+
+  ngAfterViewInit() {
+    $('#tabela').DataTable();
+    this.tableInicitalize = true;
   }
 
   getLocalStorage(name: string) {
@@ -29,3 +49,5 @@ export class UserComponent implements OnInit {
     localStorage.setItem(name, text)
   }
 }
+
+declare var $: any;

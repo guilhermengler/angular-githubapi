@@ -2,10 +2,11 @@
 .container-username {
     display: flex;
     flex-direction: column;
-    max-width: 650px;
+    max-width: 750px;
     margin: 10px auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #363636;
+    padding: 0 10px;
 
     @media (min-width: 768px) {
         flex-direction: row;
@@ -55,22 +56,33 @@
 
 .list-repos {
     margin-top: 15px;
+}
 
-    li {
-        list-style: none;
+// Oberservações
 
-        &:last-child {
-            a {
-                border-bottom: 1px solid #ddd;
-            }
-        }
-    }
+.observacoes {
+    text-align: left;
+    margin-top: 20px;
+}
 
-    a {
-        border: 1px solid #ddd;
-        border-bottom: 0;
-        padding: 5px;
-        font-size: 14px;
-        display: block;
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%;
+    display: block;    
+}
+
+.btn {
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    border: 0;
+    display: inline-block;
+    font-size: 16px;
+    padding: 8px 15px;
+
+    &:hover {
+        background-color: darken(#007bff, 10%);
     }
 }

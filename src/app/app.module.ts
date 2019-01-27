@@ -7,6 +7,7 @@ import { UserComponent } from './components/user/user.component';
 import { ErrorComponent } from './components/error/error.component';
 import { GithubService } from './services/github.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   providers: [GithubService],
   bootstrap: [AppComponent]
