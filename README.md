@@ -4,6 +4,8 @@ Esse projeto foi gerado utilizando o [Angular CLI](https://github.com/angular/an
 
 **Necessário ter instalado o NodeJS.
 
+:heavy_check_mark:
+
 ## Servidor de desenvolvimento
 
 Execute o comando `ng serve` na raiz do projeto para inicialiar o servidor de desenvolvimento. Navegue para `http://localhost:4200/`.
