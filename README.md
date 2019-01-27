@@ -11,8 +11,11 @@ Execute o comando `ng serve` na raiz do projeto para inicialiar o servidor de de
 ## O que foi desenvolvido
 
 :heavy_check_mark: Pesquisa de usuário do GitHub pelo **username**
+
 :heavy_check_mark: Anotações do usuário (LocalStorage)
+
 :heavy_check_mark: Paginação na listagem de repositórios
+
 :heavy_check_mark: Validação de página 404 para quando um usuário não existir
 
 ## Sobre a aplicação
